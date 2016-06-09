@@ -1,6 +1,17 @@
 <template name = "layout">
 	<div class = "container">
+		<ul class="nav nav-tabs">
+  			<li role="presentation">
+  				<a href="{{pathFor 'home'}}">Home</a>
+  			</li>
+ 			<li role="presentation">
+ 				<a href="{{pathFor 'about'}}">About</a>
+ 			</li>
+  			<li role="presentation">
+  				<a href="{{pathFor 'comments'}}">Comments</a>
+  			</li>
+		</ul>
 	<h1>My App</h1>
-	{{yield}}
+	{{>yield}}
 	</div>
 </template>

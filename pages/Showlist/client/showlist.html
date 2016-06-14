@@ -1,0 +1,8 @@
+<template name ="showList">
+	<h1>Shopping List</h1>
+	<ul>
+		{{#each i in items}}
+		<li>{{i.person}} is buying {{i.items}}</li>
+		{{/each}}
+	</ul>
+</template>

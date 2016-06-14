@@ -11,11 +11,14 @@
   			<li role="presentation">
   				<a href="{{pathFor 'comments'}}">Comments</a>
   			</li>
+        <li role = "showList">
+          <a href="{{pathFor 'showList'}}">ShowList</a>
+        </li>
   			<li>
   				{{> loginButtons}}
   			</li>
 		</ul>
-	<h1>My App</h1>
+	<!--<h1>My App</h1>-->
 	{{>yield}}
 	</div>
 </template>

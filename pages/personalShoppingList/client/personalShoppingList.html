@@ -1,0 +1,55 @@
+<template name = "personalShoppingList">
+	<h1>
+		Personal Shopping List
+	</h1>
+	This is a personal shopping list for individual users. The list will update whenever a new item needs to be bought for the house. Also, users can add personal items to remind themselves of what they need to buy if the items are not part of the regular house shopping list. These personal items can be private so other people cannot see what is on the list but house items can be seen by everyone.
+
+	<br>
+	<hr>
+	<ul>
+		Need to buy: <input type = "text" class = "js-needToBuy">
+		<button class = "js-addPersonalList">Add to personal list</button>
+		<!--{{if currentUser}}> -->
+			{{#each p in personalList}}
+				{{> personalListRow personalItem = p}}
+
+			{{/each}}
+		<!--{{/if}}-->
+	</ul>
+</template>
+
+<template name = "personalListRow">
+	<li>
+	{{personalItem.text}}{{personalItem.addedBy}}
+	<span class="js-delete-personalItem glyphicon glyphicon-remove" aria-hidden="true">
+       </span>
+	</li>
+</template>
+
+<!--
+<template name ="houseShoppingList">
+	<h1>House Shopping List</h1>
+	This is a list of all the communal items that the house shares. To personalize your list, just add groceries. <br>//Maybe in the future, there can be an already made list that people can use to start off that includes typical staples like milk and eggs.
+	<br>
+	<hr>
+	
+	<ul>
+		Need to buy: <input type = "text" class = "js-needToBuy">
+		<button class = "js-addGrocery">Add to house list</button>
+		{{#each g in grocery}}
+			{{> groceryListRow grocery = g}}
+		{{/each}}
+	</ul>
+
+</template>
+
+<template name = "groceryListRow">
+	<li>
+		{{grocery.text}} {{grocery.addedBy}}
+		<span class="js-delete-grocery glyphicon glyphicon-remove" aria-hidden="true">
+       </span>
+	</li>
+
+</template>
+
+-->

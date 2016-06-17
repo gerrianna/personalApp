@@ -1,0 +1,1 @@
+//Meteor.publish("theUsers",function(){return Users.find();});

@@ -1,0 +1,24 @@
+<template name ="houseShoppingList">
+	<h1>House Shopping List</h1>
+	This is a list of all the communal items that the house shares. To personalize your list, just add groceries. <br>//Maybe in the future, there can be an already made list that people can use to start off that includes typical staples like milk and eggs.
+	<br>
+	<hr>
+	
+	<ul>
+		Need to buy: <input type = "text" class = "js-needToBuy">
+		<button class = "js-addGrocery">Add to house list</button>
+		{{#each g in grocery}}
+			{{> groceryListRow grocery = g}}
+		{{/each}}
+	</ul>
+
+</template>
+
+<template name = "groceryListRow">
+	<li>
+		{{grocery.text}} {{grocery.addedBy}}
+		<span class="js-delete-grocery glyphicon glyphicon-remove" aria-hidden="true">
+       </span>
+	</li>
+
+</template>

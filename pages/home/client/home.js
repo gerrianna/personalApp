@@ -6,7 +6,11 @@ Template.home.onCreated(function(){
 	});
 	console.log("creating the template");
 	console.dir(this.state);
+<<<<<<< Updated upstream
 });
+=======
+})
+>>>>>>> Stashed changes
 
 Template.home.helpers ({
 	theColor: function(){
@@ -18,6 +22,7 @@ Template.home.helpers ({
 		const instance = Template.instance();
 		return instance.state.counter;
 	},
+<<<<<<< Updated upstream
 });
 
 Template.home.events ({
@@ -31,4 +36,6 @@ Template.home.events ({
 		const counter = instance.state.get("counter");
 		instance.state.set("counter", 1+counter);
 	},
+=======
+>>>>>>> Stashed changes
 })

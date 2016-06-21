@@ -7,9 +7,10 @@ Template.houseShoppingList.events({
 	"click .js-addGrocery": function(event){
 	//	event.preventDefault();
 		console.log("added to shopping list");
+		const grocery_quantity = $(" .js-quantity").val();
 		const needToBuy = $(" .js-needToBuy").val(); //reads what the user adds to the need to buy list
-		const grocery = {text:needToBuy, addedBy: Meteor.userId()};
-		Groceries.insert(grocery);
+		const grocery_obj = {text:needToBuy, quantity: grocery_quantity, addedBy: Meteor.userId()};
+		Groceries.insert(grocery_obj);
 		//Groceries.insert(user);
 		console.dir(needToBuy);
 		

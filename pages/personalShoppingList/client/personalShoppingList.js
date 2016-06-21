@@ -1,4 +1,20 @@
 Template.personalShoppingList.helpers({
+	personalData: function(){return PersonalList.find()}
+})
+
+Template.personalShoppingList.events({
+	"click .js-submit-item": function(event){
+		const needToBuy = $(".js-personalItem").val(); //this gets the item that the user added to their personal list
+		const item_obj =
+		{
+			text: needToBuy,
+			addedBy: Meteor.userId()
+		};
+		//PersonalList.insert(item_obj
+	}
+})
+
+/*Template.personalShoppingList.helpers({
 	personalItem: function(){return PersonalList.find()}
 	//grocery: function(){return Groceries.find()}
 	//const dest = $(" .js-dest").val();

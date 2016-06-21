@@ -5,18 +5,30 @@
 	<hr>
 	
 	<ul>
+		Quantity
+		<select class = "js-quantity">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
 		Need to buy: <input type = "text" class = "js-needToBuy">
 		<button class = "js-addGrocery">Add to house list</button>
+		<hr>
 		{{#each g in grocery}}
 			{{> groceryListRow grocery = g}}
 		{{/each}}
+
 	</ul>
+	<br>
 
 </template>
 
+
 <template name = "groceryListRow">
 	<li>
-		{{grocery.text}} {{grocery.addedBy}}
+		{{grocery.quantity}} {{grocery.text}} {{grocery.addedBy}}
 		<span class="js-delete-grocery glyphicon glyphicon-remove" aria-hidden="true">
        </span>
 	</li>

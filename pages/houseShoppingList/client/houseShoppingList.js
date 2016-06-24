@@ -4,41 +4,49 @@ Template.houseShoppingList.helpers({
 	//const dest = $(" .js-dest").val();
 })
 
-Template.houseShoppingList.events({
-	"click .js-addGrocery": function(event){
+Template.houseShoppingList.events({ //this is the javascript to add an grocery item to the house list
+	"click .js-addGrocery": function(event){ //when you click the 'add grocery' button it adds the item
 	//	event.preventDefault();
 		console.log("added to shopping list");
-		const grocery_quantity = $(" .js-quantity").val();
+		const grocery_quantity = $(" .js-quantity").val(); //reads what the user inputs as a quantity value
 		const needToBuy = $(" .js-needToBuy").val(); //reads what the user adds to the need to buy list
 		const grocery_obj = {text:needToBuy, quantity: grocery_quantity, addedBy: Meteor.userId()};
-		Groceries.insert(grocery_obj);
-		//Groceries.insert(user);
+		// the grocery_obj is the grocery item with all of it's information
+		Meteor.call("insertGrocery",grocery_obj); //this calls the methods.js is the lib and inserts it into the groceries collection
+		//Groceries.insert(grocery_obj);
 		console.dir(needToBuy);
 	},
 	"click .js-change-grocery": function(event){
 		//Groceries.update({this.grocery._id}, {grocery_quantity:grocery});
+	},
+	"click .js-remove-all-groceries": function(event){
+		const pw = $(".js-password").val();
+		Meteor.call("removeAllGroceries",pw);
 	}
 })
 
 Template.groceryListRow.events({
-	"click .js-move-grocery": function (event){
-		console.log("clicked on the x");
-		console.dir(this);
+	"click .js-move-grocery": function (event){ //this moves the grocery item from the grocery list to the pantry
+		console.log("clicked on the check box"); //prints out in console that the user clicked the check box
+		console.dir(this); //prints in console the actual item
 
-		const pantry_quantity = $(" .js-quantity").val();
+		const pantry_quantity = $(" .js-quantity").val(); //reads what the user inputs as a quantity value
 		const needToBuy = $(" .js-needToBuy").val(); //reads what the user adds to the need to buy list
 		const pantry_obj = {text:needToBuy, quantity: pantry_quantity, addedBy: Meteor.userId()};
 		console.dir(needToBuy);
-		Pantry.insert(pantry_obj);
-		console.log("added to pantry");
 
-		Groceries.remove(this.grocery._id);
+		Meteor.call("addToPantry",pantry_obj);
+		console.log("added to pantry"); //prints out in console that the item was added to the pantry
+
+		Meteor.call("removeGrocery",this);
+		//Groceries.remove(this.grocery._id);
 		console.log("removed from grocery");
 		console.dir(needToBuy);
 	},
 	"click .js-remove-grocery": function(event){
 		console.log("clicked the x");
-		Groceries.remove(this.grocery._id);
+		Meteor.call("removeGrocery",this.grocery._id);
+		//Groceries.remove(this.grocery._id);
 	},
 	
 })

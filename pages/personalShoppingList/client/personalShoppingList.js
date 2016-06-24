@@ -10,16 +10,18 @@ Template.personalShoppingList.events({
 			text: item_text,
 			addedBy: Meteor.userId(),
 		};
-		PersonalList.insert(item_obj);
+		//PersonalList.insert(item_obj);
 		console.dir(item_text);
-	}
+		Meteor.call("insertItem",item_obj);
+	},
 })
 
 Template.itemRow.events({
 	"click .js-delete-item": function(event){
 		console.log("clicked on the x");
 		console.dir(this);
-		PersonalList.remove(this.grocery._id);
-	}
+		Meteor.call("removeItem",this.grocery._id);
+		//PersonalList.remove(this.grocery._id);
+	},
 })
 

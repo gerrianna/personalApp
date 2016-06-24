@@ -1,8 +1,7 @@
 <template name ="home">
+	<div class = "{{theColor}}">
 	<h1> Welcome to Communal Kitchen</h1>
 	<br>
-<<<<<<< Updated upstream
-	<div>
 		{{#if currentUser}}
 			Welcome back!
 			<!--  want to add a section where it has the user's name when they log into the first page
@@ -18,27 +17,7 @@
 			<option>bg-info</option>
 		</select>
 		<br>
-		Color: {{theColor}} <br>
 		Counter: {{theCounter}} <br>
 		<button class = "js-pusher">Push me </button>
 	</div>
-=======
-	{{#if currentUser}}
-		Welcome back!
-		<!--  want to add a section where it has the user's name when they log into the first page
-			also want to add a part where you can click on other users' names and see their info and shopping list
-			on a user's page it will have a link to their list as well as an overview of any meals they are cooking plus any allergies or special notes
-		-->
-	{{else}}
-		Please log in
-	{{/if}}
-	<br>
-	<select class = "js-color">
-		<option>bg-info</option>
-		<option>bg-warning</option>
-	</select>
-	Color: {{theColor}} </br>
-	Counter: {{theCounter}} </br>
-	<button class = "js-pusher">Push me</button>
->>>>>>> Stashed changes
 </template>

@@ -2,15 +2,11 @@ Template.home.onCreated(function(){
 	this.state = new ReactiveDict();
 	this.state.setDefault({
 		color: "bg-info",
-		counter:0,
+		counter: 0,
 	});
 	console.log("creating the template");
 	console.dir(this.state);
-<<<<<<< Updated upstream
 });
-=======
-})
->>>>>>> Stashed changes
 
 Template.home.helpers ({
 	theColor: function(){
@@ -20,9 +16,8 @@ Template.home.helpers ({
 
 	theCounter: function(){
 		const instance = Template.instance();
-		return instance.state.counter;
+		return instance.state.get("counter");
 	},
-<<<<<<< Updated upstream
 });
 
 Template.home.events ({
@@ -32,10 +27,9 @@ Template.home.events ({
 		instance.state.set("color",c);
 	},
 	"click .js-pusher": function(event,instance){
-		console.log($(".js-color").val());
+		console.log($(".js-pusher").val());
 		const counter = instance.state.get("counter");
 		instance.state.set("counter", 1+counter);
 	},
-=======
->>>>>>> Stashed changes
+
 })

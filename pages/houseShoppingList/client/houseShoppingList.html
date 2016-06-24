@@ -16,6 +16,9 @@
 		Need to buy: <input type = "text" class = "js-needToBuy">
 		<button class = "js-addGrocery">Add to house list</button>
 		<hr>
+		Grocery List
+		Click the check mark to add it to your pantry.
+		Click the x to remove it from your list.
 		{{#each g in grocery}}
 			{{> groceryListRow grocery = g}}
 		{{/each}}
@@ -23,17 +26,92 @@
 	</ul>
 	<br>
 
+	<hr>
+	<ul>
+		Pantry - this holds all of the food you have bought. <br>
+		Click the add button if you need to buy more of that product and it will add it to your grocery list.
+		<br>
+		<br>
+		{{#each p in pantry}}
+			{{> pantryListRow pantry = p}}
+		{{/each}}
+	</ul>
+	<br>
+	<br>
 </template>
 
 
 <template name = "groceryListRow">
 	<li>
-		{{grocery.quantity}} {{grocery.text}} {{grocery.addedBy}}
-		<span class="js-delete-grocery glyphicon glyphicon-remove" aria-hidden="true">
-       </span>
+		{{grocery.quantity}} <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal"> {{grocery.text}}
+		</button>
+		<span class="js-move-grocery glyphicon glyphicon-ok" aria-hidden="true">
+      	</span>
+       	<span class="js-remove-grocery glyphicon glyphicon-remove" aria-hidden="true">
+       	</span>
+       	<div class="modal fade" id="myModal" tabindex="-1" role = "dialog" aria-labelledby="myModalLabel">
+       		<div class="modal-dialog" role="document">
+       			<div class = "modal-content">
+       				<div class = "modal-header">
+       					This is where I want users to be able to edit their grocery list items.
+       					<br>
+       					Quantity
+						<select class = "js-quantity">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+						<button class = "js-change-grocery">Edit grocery item</button>
+       					<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       					<h4>Hi {{grocery.text}} </h4>-->
+       				</div>
+       				<div class = "modal-footer">
+       					<button type="button" class = "btn btn-default" data-dismiss="modal">Close</button>
+       				</div>
+       			</div>
+       		</div>
+       	</div>
+	</li>
+</template>
+
+<template name = "pantryListRow">
+	<li>
+	{{pantry.quantity}} <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal"> {{pantry.text}}
+		</button>
+		<span class="js-move-pantry glyphicon glyphicon-ok" aria-hidden="true">
+      	</span>
+       	<span class="js-remove-pantry glyphicon glyphicon-remove" aria-hidden="true">
+       	</span>
+       	<div class="modal fade" id="myModal" tabindex="-1" role = "dialog" aria-labelledby="myModalLabel">
+       		<div class="modal-dialog" role="document">
+       			<div class = "modal-content">
+       				<div class = "modal-header">
+       					This is where I want users to be able to edit their grocery list items.
+       					<br>
+       					Quantity
+						<select class = "js-quantity">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+						<button class = "js-change-pantry">Edit pantry item</button>
+       					<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       					<h4>Hi {{grocery.text}} </h4>-->
+       				</div>
+       				<div class = "modal-footer">
+       					<button type="button" class = "btn btn-default" data-dismiss="modal">Close</button>
+       				</div>
+       			</div>
+       		</div>
+       	</div>
 	</li>
 
 </template>
+
 
 <!--<template name ="showride">
 	{{ride.offeredBy}} offering ride to {{ride.to}}<br>

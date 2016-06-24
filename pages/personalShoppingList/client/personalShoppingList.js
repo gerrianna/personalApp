@@ -4,67 +4,22 @@ Template.personalShoppingList.helpers({
 
 Template.personalShoppingList.events({
 	"click .js-submit-item": function(event){
-		const needToBuy = $(".js-personalItem").val(); //this gets the item that the user added to their personal list
+		const item_text = $(".js-item").val(); //this gets the item that the user added to their personal list
 		const item_obj =
 		{
-			text: needToBuy,
-			addedBy: Meteor.userId()
+			text: item_text,
+			addedBy: Meteor.userId(),
 		};
-		//PersonalList.insert(item_obj
+		PersonalList.insert(item_obj);
+		console.dir(item_text);
 	}
 })
 
-/*Template.personalShoppingList.helpers({
-	personalItem: function(){return PersonalList.find()}
-	//grocery: function(){return Groceries.find()}
-	//const dest = $(" .js-dest").val();
-}) 
-
-Template.personalShoppingList.events({
-	"click .js-addGrocery": function(event){
-	//	event.preventDefault();
-		console.log("added to shopping list");
-		const needToBuy = $(" .js-needToBuy").val(); //reads what the user adds to the need to buy list
-		const personalItem = {text:needToBuy, addedBy: Meteor.userId()};
-		PersonalList.insert(personalItem);
-		//PersonalList.insert(user);
-		console.dir(needToBuy);
-		
-	}
-})
-
-/*Template.personalListRow.events({
-	"click .js-delete-personalItem": function (event){
+Template.itemRow.events({
+	"click .js-delete-item": function(event){
 		console.log("clicked on the x");
 		console.dir(this);
-		PersonalList.remove(this.personalItem._id);
-	}
-})*/
-
-
-/*Template.houseShoppingList.helpers({
-	grocery: function(){return Groceries.find()}
-	//const dest = $(" .js-dest").val();
-})
-
-Template.houseShoppingList.events({
-	"click .js-addGrocery": function(event){
-	//	event.preventDefault();
-		console.log("added to shopping list");
-		const needToBuy = $(" .js-needToBuy").val(); //reads what the user adds to the need to buy list
-		const grocery = {text:needToBuy, addedBy: Meteor.userId()};
-		Groceries.insert(grocery);
-		Groceries.insert(user);
-		console.dir(needToBuy);
-		
+		PersonalList.remove(this.grocery._id);
 	}
 })
-
-Template.groceryListRow.events({
-	"click .js-delete-grocery": function (event){
-		console.log("clicked on the x");
-		console.dir(this);
-		Groceries.remove(this.grocery._id);
-	},
-}) */
 

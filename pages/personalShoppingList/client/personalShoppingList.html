@@ -7,49 +7,23 @@
 	<br>
 	<hr>
 	<ul>
-		Need to buy: <input type = "text" class = "js-submit-item">
-		<button class = "js-personalItem">Add to personal list</button>
-		<!--{{if currentUser}}> -->
-			{{#each p in personalList}}
-				{{> personalListRow personalItem = p}}
+		Need to buy: <input type = "text" class = "js-item"> 
+		<!-- this is where people type in what they want to buy-->
+		<button class = "js-submit-item">Add to personal list</button>
+		<!-- this button adds the personal item to the list-->
+		<!--{{if currentUser}}-->
+			{{#each p in personalData}}
+				{{> itemRow grocery = p}}
 
 			{{/each}}
 		<!--{{/if}}-->
 	</ul>
 </template>
 
-<template name = "personalListRow">
+<template name = "itemRow">
 	<li>
-	{{personalItem.text}}{{personalItem.addedBy}}
-	<span class="js-delete-personalItem glyphicon glyphicon-remove" aria-hidden="true">
+	{{grocery.text}} {{grocery.addedBy}}
+	<span class="js-delete-item glyphicon glyphicon-remove" aria-hidden="true">
        </span>
 	</li>
 </template>
-
-<!--
-<template name ="houseShoppingList">
-	<h1>House Shopping List</h1>
-	This is a list of all the communal items that the house shares. To personalize your list, just add groceries. <br>//Maybe in the future, there can be an already made list that people can use to start off that includes typical staples like milk and eggs.
-	<br>
-	<hr>
-	
-	<ul>
-		Need to buy: <input type = "text" class = "js-needToBuy">
-		<button class = "js-addGrocery">Add to house list</button>
-		{{#each g in grocery}}
-			{{> groceryListRow grocery = g}}
-		{{/each}}
-	</ul>
-
-</template>
-
-<template name = "groceryListRow">
-	<li>
-		{{grocery.text}} {{grocery.addedBy}}
-		<span class="js-delete-grocery glyphicon glyphicon-remove" aria-hidden="true">
-       </span>
-	</li>
-
-</template>
-
--->

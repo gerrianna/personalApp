@@ -67,7 +67,8 @@ Template.pantryListRow.events({
 		const needToBuy = $(" .js-needToBuy").val(); //reads what the user adds to the need to buy list
 		const grocery_obj = {text:needToBuy, quantity: grocery_quantity, addedBy: Meteor.userId()};
 		Groceries.insert(grocery_obj);
-		Pantry.remove(this.pantry._id);
+		Meteor.call("removePantry",this.pantry._id);
+		//Pantry.remove(this.pantry._id);
 		console.dir(needToBuy);
 	},
 })

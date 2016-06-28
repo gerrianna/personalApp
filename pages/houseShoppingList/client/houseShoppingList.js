@@ -21,6 +21,10 @@ Template.houseShoppingList.events({ //this is the javascript to add an grocery i
 		const pw = $(".js-password").val();
 		Meteor.call("removeAllGroceries",pw);
 	},
+	/*/"submit .js-user":function(event){
+		event.preventDefault();
+		Meteor.subscribe("theRidesTo",)
+	}*/
 })
 
 Template.groceryListRow.events({

@@ -22,6 +22,13 @@
 		{{#each g in grocery}}
 			{{> groceryListRow grocery = g}} 
 			<a href="/houseShoppingLists/{{g._id}}">status</a> <!--creates a new page specific to that grocery item -->
+			<button type = "button" class = "js-user-buy-turn" data-toggle="dropdown" aria-haspopup = "true" aria-expanded = "false">
+				Action <span class = "caret"></span>
+			</button>
+			<ul>
+				<li> </li>
+			</ul>
+		
 		{{/each}}
 
 	</ul>

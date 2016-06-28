@@ -25,7 +25,7 @@
 
 	</ul>
 		<button class = "js-remove-all-groceries">Remove All</button>
-		<input class = "js-password" type = "password">
+		<!--<input class = "js-password" type = "password">-->
 	<br>
 
 	<hr>
@@ -49,9 +49,10 @@
 		{{grocery.quantity}} <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal"> {{grocery.text}}
 		</button>
 		<span class="js-move-grocery glyphicon glyphicon-ok" aria-hidden="true">
-      	</span>
+      	</span> <!-- this button moves the grocery item to the pantry list-->
        	<span class="js-remove-grocery glyphicon glyphicon-remove" aria-hidden="true">
-       	</span>
+       	</span> <!-- this button deletes the grocery item from Groeries collection-->
+
        	<div class="modal fade" id="myModal" tabindex="-1" role = "dialog" aria-labelledby="myModalLabel">
        		<div class="modal-dialog" role="document">
        			<div class = "modal-content">
@@ -59,7 +60,7 @@
        					This is where I want users to be able to edit their grocery list items.
        					<br>
        					Quantity
-						<select class = "js-quantity">
+						<select class = "js-new-quantity">
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>

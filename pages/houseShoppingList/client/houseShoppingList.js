@@ -16,13 +16,11 @@ Template.houseShoppingList.events({ //this is the javascript to add an grocery i
 		//Groceries.insert(grocery_obj);
 		console.dir(needToBuy);
 	},
-	"click .js-change-grocery": function(event){
-		//Groceries.update({this.grocery._id}, {grocery_quantity:grocery});
-	},
+	
 	"click .js-remove-all-groceries": function(event){
 		const pw = $(".js-password").val();
 		Meteor.call("removeAllGroceries",pw);
-	}
+	},
 })
 
 Template.groceryListRow.events({
@@ -46,7 +44,16 @@ Template.groceryListRow.events({
 	"click .js-remove-grocery": function(event){
 		console.log("clicked the x");
 		Meteor.call("removeGrocery",this.grocery._id);
+		console.log(Groceries);
 		//Groceries.remove(this.grocery._id);
+	},
+	"click .js-change-grocery": function(event){
+		console.log("edited grocery");
+		const grocery_quantity = $(" .js-new-quantity").val(); //reads the changed input
+		//console.log(grocery_quantity);
+		//console.log(this);
+		//console.log(this.grocery._id, this, grocery_quantity);
+		Meteor.call("editGrocery",this.grocery._id, grocery_quantity, this);
 	},
 	
 })

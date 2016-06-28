@@ -1,4 +1,4 @@
-if(Meteor.isServer){
+/*if(Meteor.isServer){
 	Meteor.publish(
 		'personalShoppingList',
 		function(){
@@ -6,4 +6,4 @@ if(Meteor.isServer){
 			return PersonalList.find({ createdBy: currentUser});
 		}
 	);
-}
+}*/

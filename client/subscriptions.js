@@ -1,1 +1,1 @@
-Meteor.subscribe("personalShoppingList");
+//Meteor.subscribe("personalShoppingList");

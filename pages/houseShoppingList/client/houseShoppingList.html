@@ -20,7 +20,8 @@
 		Click the check mark to add it to your pantry.
 		Click the x to remove it from your list.
 		{{#each g in grocery}}
-			{{> groceryListRow grocery = g}}
+			{{> groceryListRow grocery = g}} 
+			<a href="/houseShoppingLists/{{g._id}}">status</a> <!--creates a new page specific to that grocery item -->
 		{{/each}}
 
 	</ul>
@@ -116,8 +117,20 @@
 
 </template>
 
+<template name = "houseShoppingLists">
+	<br>
+	<br>
+	item: {{text}} ({{quantity}})
+	Status:
+	<select class = "js-status">
+		<option>Fully stocked! (no need to buy more)</option>
+		<option>Running low (make sure to get it soon)</option>
+		<option>All gone :( Need to buy more</option>
+	</select>
+	<button type = "button" class = "js-apply-status">Apply
+	</button>
+	<button type = "button">
+		<a href="/houseShoppingList">Back</a>
+	</button>
 
-<!--<template name ="showride">
-	{{ride.offeredBy}} offering ride to {{ride.to}}<br>
-	{{comment}}
-</template> -->
+</template>

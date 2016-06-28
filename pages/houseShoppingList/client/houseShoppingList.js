@@ -33,7 +33,7 @@ Template.groceryListRow.events({
 		const pantry_obj = {text:needToBuy, quantity: pantry_quantity, addedBy: Meteor.userId()};
 		console.dir(needToBuy);
 
-		Meteor.call("addToPantry",pantry_obj);
+		Meteor.call("addToPantry",this);
 		console.log("added to pantry"); //prints out in console that the item was added to the pantry
 
 		Meteor.call("removeGrocery",this);
@@ -66,11 +66,20 @@ Template.pantryListRow.events({
 		const grocery_quantity = $(" .js-quantity").val();
 		const needToBuy = $(" .js-needToBuy").val(); //reads what the user adds to the need to buy list
 		const grocery_obj = {text:needToBuy, quantity: grocery_quantity, addedBy: Meteor.userId()};
-		Groceries.insert(grocery_obj);
+		//Groceries.insert(grocery_obj);
+		Meteor.call("insertGrocery",this.pantry._id);
 		Meteor.call("removePantry",this.pantry._id);
+
 		//Pantry.remove(this.pantry._id);
 		console.dir(needToBuy);
 	},
+})
+
+Template.houseShoppingLists.events({
+	"click .js-apply-status": function(event){
+		const grocery_status = $(" .js-status").val();
+		Meteor.call("status",this,grocery_status);
+	}
 })
 
  

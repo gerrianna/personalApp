@@ -1,0 +1,16 @@
+<template name = "profiles">
+	{{#if currentUser}}
+		Profiles:
+		<ul>
+			<ol>
+			{{#each p in profiles}}
+					<li>
+						{{p.firstname}} {{p.lastname}} {{p.nickname}} {{p.email}} {{p.birthyear}}
+					</li>
+			{{/each}}
+			</ol>	
+		</ul>
+	{{else}}
+		Please log in
+	{{/if}}
+</template>

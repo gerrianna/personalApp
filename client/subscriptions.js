@@ -1,2 +1,1 @@
-Meteor.subscribe("userData");
-Meteor.subscribe("settings");
+Meteor.subscribe("theProfiles");

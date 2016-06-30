@@ -5,28 +5,18 @@
   			<li role="presentation">
   				<a href="{{pathFor 'home'}}">Home</a>
   			</li>
-
- 			  <li role="presentation">
- 				   <a href="{{pathFor 'houseShoppingList'}}">House Shopping List</a>
- 			  </li>
-
-  			<li role="presentation">
-  				<a href="{{pathFor 'personalShoppingList'}}">Personal Shopping List</a>
-  			</li>
-
-        <li role = "showList">
-          <a href="{{pathFor 'mealCalendar'}}">Meal Calendar</a>
+        <li role ="presentation">
+          <a href = "{{pathFor 'profiles'}}">Profiles</a>
         </li>
 
         <li role = "presentation">
-          <a href ="{{pathFor 'settings'}}">Settings</a>
+          <a href = "{{pathFor 'myProfile'}}">My Profile</a>
         </li>
-        
+
   			<li>
   				{{> loginButtons}}
   			</li>
 		</ul>
-	<!--<h1>My App</h1>-->
 	{{>yield}}
 	</div>
 </template>

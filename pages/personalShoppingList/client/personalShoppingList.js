@@ -1,18 +1,18 @@
 Template.personalShoppingList.helpers({
-	personalData: function(){return PersonalList.find()}
+	personalList: function(){return PersonalList.find()},
 })
 
 Template.personalShoppingList.events({
 	"click .js-submit-item": function(event){
-		const item_text = $(".js-item").val(); //this gets the item that the user added to their personal list
-		const item_obj =
+		console.dir("hi");
+		const personalList_text = $(".js-item").val(); //this gets the item that the user added to their personal list
+		console.dir(personalList_text);
+		const personalList_obj =
 		{
-			text: item_text,
+			text: personalList_text,
 			addedBy: Meteor.userId(),
 		};
-		//PersonalList.insert(item_obj);
-		console.dir(item_text);
-		Meteor.call("insertItem",item_obj);
+		Meteor.call("insertItem",personalList_obj);
 	},
 })
 
@@ -20,8 +20,8 @@ Template.itemRow.events({
 	"click .js-delete-item": function(event){
 		console.log("clicked on the x");
 		console.dir(this);
-		Meteor.call("removeItem",this.grocery._id);
-		//PersonalList.remove(this.grocery._id);
+
+		Meteor.call("removeItem",this);
 	},
 })
 

@@ -1,2 +1,2 @@
 Meteor.subscribe("userData");
-//Meteor.subscribe("personalShoppingList");
+Meteor.subscribe("settings");

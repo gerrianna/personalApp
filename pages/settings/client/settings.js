@@ -1,4 +1,24 @@
-//create a "class" for complex numbers
+Template.settings.helpers({
+	settings: function(){return Settings.find()},
+})
+
+Template.settings.events({
+	"click .js-add-greeting": function(event){
+		const greeting_text = $(".js-greeting").val(); //this gets the item that the user added to their personal list
+		console.dir(greeting_text);
+		const greeting_obj =
+		{
+			text: greeting_text,
+			greeting: "",
+		};
+		Meteor.call("greeting",greeting_obj,greeting_text);
+	},
+})
+
+
+
+
+/*/create a "class" for complex numbers
 
 function ComplexNumber(re,im){
 	this.re = re;
@@ -39,4 +59,4 @@ myobj = (function() {
 
 Template.testing.helpers({
 	num: function(){return num;}
-});
+});*/

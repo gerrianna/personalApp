@@ -11,7 +11,7 @@ Meteor.publish("thePantry",
 Meteor.publish("thePersonalList",function(){
 	if(this.userId){
 		return PersonalList.find(
-		//{_id: this.userId()},
+			{addedBy: this.userId},
 	);
 	} else {
 		this.ready();
@@ -21,7 +21,9 @@ Meteor.publish("thePersonalList",function(){
 
 Meteor.publish("settings", function(){
 	if(this.userId){
-		return Meteor.users.find();
+		return Settings.find(
+			{user: this.userId},
+	);
 	} else {
 		this.ready();
 	}

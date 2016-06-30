@@ -1,33 +1,36 @@
-<template name = "settings">
-	<style>
-		h1.serif{
-			font-family: "Spelling Night", Times, serif;
-			color: rgb(84,73,115);
-		}
-		div.heading{
+		
+		
 			background-color: rgb(196,189,251);
-			border-style: solid;
 			border-color: rgb(196,189,251);
 			border-radius: 8px;
-			padding-left: 30px;
+			border-style: solid;
+			color: rgb(84,73,115);
+			font-family: "Spelling Night", Times, serif;
 			padding-bottom: 10px;
-		}
-	</style>
-	<div class = "heading">
-		<h1 class = "serif">Settings
-		</h1>
-	</div>
-	<div>
-		<br>
-		{{#if currentUser}}
-			Welcome back!
-		{{else}}
+			padding-left: 30px;
 			Please log in.
-		{{/if}}
-	</div>
-	<div>
+			Welcome back {{currentUser}}!
+		<!--Setting: {{settings.text}}
+		</h1>
+		<br>
+		<button class = "js-add-greeting">Add greeting</button> -->
+		<h1 class = "serif">Settings
 		<input type = "text" class = "js-greeting">
-		<button class = "js-add-greeting">Add greeting</button>
-		{{greeting_text}}
+		div.heading{
+		h1.serif{
+		{{#if currentUser}}
+		{{/if}}
+		{{else}}
+		}
+		}
 	</div>
+	</div>
+	</div>
+	</style>
+	<br>
+	<div class = "heading">
+	<div>
+	<div>
+	<style>
 </template>
+<template name = "settings">

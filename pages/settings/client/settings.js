@@ -1,21 +1,20 @@
 Template.settings.helpers({
-	settings: function(){return Settings.find()},
+	settings: function(){return Settings.find().fetch().currentUser},
 })
 
-Template.settings.events({
+/*Template.settings.events({
 	"click .js-add-greeting": function(event){
 		const greeting_text = $(".js-greeting").val(); //this gets the item that the user added to their personal list
 		console.dir(greeting_text);
 		const greeting_obj =
 		{
 			text: greeting_text,
-			greeting: "",
+			user: Meteor.userId(),
 		};
-		Meteor.call("greeting",greeting_obj,greeting_text);
+		Meteor.call("greeting",this);
 	},
 })
-
-
+*/
 
 
 /*/create a "class" for complex numbers

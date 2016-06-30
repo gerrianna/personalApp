@@ -23,17 +23,19 @@
 	</div>
 	<hr>
 	<ul>
-		Need to buy: <input type = "text" class = "js-item"> 
-		<!-- this is where people type in what they want to buy-->
-		<button class = "js-submit-item">Add to personal list</button>
-		<!-- this button adds the personal item to the list-->
-		<!--{{if currentUser}}-->
-			{{#each p in personalList}}
-				<li>
-					{{> itemRow personalList = p}}
-				</li>
-			{{/each}}
-		<!--{{/if}}-->
+		<!--{{#if currentUser}}-->
+			Need to buy: <input type = "text" class = "js-item"> 
+			<!-- this is where people type in what they want to buy-->
+			<button class = "js-submit-item">Add to personal list</button>
+			<!-- this button adds the personal item to the list-->
+				{{#each p in personalList}}
+					<li>
+						{{> itemRow personalList = p}}
+					</li>
+				{{/each}}
+		<!--{{else}}
+			Please log in
+		{{/if}}-->
 	</ul>
 	
 </template>

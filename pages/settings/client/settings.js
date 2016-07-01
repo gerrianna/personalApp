@@ -13,6 +13,7 @@ Template.settings.events({
 		};
 		console.log(greeting_obj);
 		Meteor.call("greeting",greeting_obj);
+		
 	},
 })
 

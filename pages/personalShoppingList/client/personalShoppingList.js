@@ -1,5 +1,11 @@
 Template.personalShoppingList.helpers({
 	personalList: function(){return PersonalList.find()},
+	grocery: function(){return Groceries.find()},
+	idMatch: function(){
+		var a = Groceries.findOne({_id:grocery._id})._id;
+		var b = Groceries.findOne({_id:grocery._id}).buyerId;
+		return a == b;
+	},
 })
 
 Template.personalShoppingList.events({
@@ -20,8 +26,10 @@ Template.itemRow.events({
 	"click .js-delete-item": function(event){
 		console.log("clicked on the x");
 		console.dir(this);
-
-		Meteor.call("removeItem",this);
+		console.log(this.personalList._id);
+		const item = PersonalList.findOne({_id:this.personalList._id});
+		console.dir(item);
+		Meteor.call("removeItem",item);
 	},
 })
 

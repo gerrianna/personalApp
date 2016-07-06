@@ -1,31 +1,50 @@
 <template name = "layout">
-	<br>
+  <style>
+    header{
+      text-align: center;
+      font-family: "Spelling Night";
+
+    }
+    nav{
+      font-family: "Verdana", sans-serif;
+      text-align: center;
+    }
+  </style>
 	<div class = "container">
-		<ul class="nav nav-tabs">
-  			<li role="presentation">
-  				<a href="{{pathFor 'home'}}">Home</a>
-  			</li>
+    <header>
+      <h1>
+       Communal Kitchen
+      </h1>
+    </header>
+    <nav class = "navbar">
+      <div>
+    		<ul class="nav nav-tabs">
+      			<li role="presentation">
+      				<a href="{{pathFor 'home'}}">Home</a>
+      			</li>
 
- 			  <li role="presentation">
- 				   <a href="{{pathFor 'houseShoppingList'}}">House Shopping List</a>
- 			  </li>
+     			  <li role="presentation">
+     				   <a href="{{pathFor 'houseShoppingList'}}">House Shopping List</a>
+     			  </li>
 
-  			<li role="presentation">
-  				<a href="{{pathFor 'personalShoppingList'}}">Personal Shopping List</a>
-  			</li>
+      			<li role="presentation">
+      				<a href="{{pathFor 'personalShoppingList'}}">My Shopping List</a>
+      			</li>
 
-        <li role = "showList">
-          <a href="{{pathFor 'mealCalendar'}}">Meal Calendar</a>
-        </li>
+            <li role = "presentation">
+              <a href="{{pathFor 'mealCalendar'}}">Meal Calendar</a>
+            </li>
 
-        <li role = "presentation">
-          <a href ="{{pathFor 'settings'}}">Settings</a>
-        </li>
-        
-  			<li>
-  				{{> loginButtons}}
-  			</li>
-		</ul>
+            <li role = "presentation">
+              <a href ="{{pathFor 'settings'}}">Settings</a>
+            </li>
+            
+      			<li role = "presentation">
+      				{{> loginButtons}}
+      			</li>
+    		</ul>
+      </div>
+    </nav>
 	<!--<h1>My App</h1>-->
 	{{>yield}}
 	</div>

@@ -9,13 +9,13 @@ Meteor.publish("thePantry",
 })
 
 Meteor.publish("thePersonalList",function(){
-	if(this.userId){
+	//if(this.userId){
 		return PersonalList.find(
-			{addedBy: this.userId},
+			//{addedBy: this.userId},
 	);
-	} else {
-		this.ready();
-	}
+	//} else {
+		//this.ready();
+	//1`}
 	
 })
 

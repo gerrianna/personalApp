@@ -10,7 +10,17 @@ Template.houseShoppingList.events({ //this is the javascript to add an grocery i
 		console.log("added to shopping list");
 		var grocery_quantity = $(" .js-quantity").val(); //reads what the user inputs as a quantity value
 		var needToBuy = $(" .js-needToBuy").val(); //reads what the user adds to the need to buy list
-		var grocery_obj = {text:needToBuy, quantity: grocery_quantity, addedBy: Meteor.userId()};
+		var status = "";
+		var buyerEmail = Meteor.user().emails[0].address;
+		var grocery_obj = {
+			text:needToBuy, 
+			quantity: grocery_quantity, 
+			addedBy: Meteor.userId(),
+			status: status,
+			buyerEmail: buyerEmail,
+			buyerId: Meteor.userId(),
+			userEmail: Meteor.user().emails[0].address,
+		};
 		// the grocery_obj is the grocery item with all of it's information
 		Meteor.call("insertGrocery",grocery_obj); //this calls the methods.js is the lib and inserts it into the groceries collection
 		console.dir(needToBuy);
@@ -27,14 +37,6 @@ Template.houseShoppingList.events({ //this is the javascript to add an grocery i
 	}*/
 })
 Template.groceryListRow.events({
-	"click .js-remove-grocery": function(event){
-		console.log("clicked the x");
-		const text = Groceries.findOne(this.grocery._id);
-		console.dir(this.grocery._id);
-		console.dir(text);
-		Meteor.call("removeGrocery",text);
-		console.log(Groceries);
-	},
 	"click .js-make-private": function(event){
 		console.log("make private");
 		Meteor.call("insertItem",this);
@@ -45,12 +47,26 @@ Template.houseShoppingLists.events({
 	"click .js-apply-status": function(event){
 		console.log("hi");
 		var newQuantity = $(".js-new-quantity").val();
-		var grocery_status = $(" .js-status").val();
-		const item = Groceries.findOne(this.grocery_obj);
+		var grocery_status = $(".js-status").val();
+		const id = this._id;
+		console.dir("id");
+		console.dir(id);
+		//console.dir(this.grocery._id);
+		const item = Groceries.findOne({_id: this._id});
 		console.dir("item = " +item);
+		console.dir(item);
 		Meteor.call("status",item,grocery_status,newQuantity);
 		console.dir("called Meteor");
-	}
+	},
+	"click .js-remove-grocery": function(event){
+		console.log("clicked the x");
+		const text = Groceries.findOne(this._id);
+		console.dir(this._id);
+		console.dir(text);
+		Meteor.call("removeGrocery",text);
+		console.log(Groceries);
+	},
+
 })
 
 /*Template.groceryListRow.events({

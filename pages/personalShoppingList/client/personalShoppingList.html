@@ -1,27 +1,29 @@
 <template name = "personalShoppingList">
 	<style>
-	h1.serif{
-		font-family: "Spelling Night", Times, serif;
-		color: rgb(84,73,115);
-	}
-	div.heading{
-		background-color: rgb(196,189,251);
-		border-style: solid;
-		border-color: rgb(196,189,251);
-		border-radius: 8px;
-		padding-left: 30px;
-		padding-bottom: 10px;
-	}
+		h1.serif{
+			font-family: "Helvetica";
+		}
 	</style>
 	<div class = "heading">
 		<h1 class = "serif">
-			Personal Shopping List
+			My Shopping List
 		</h1>
 		This is a personal shopping list for individual users. The list will update whenever a new item needs to be bought for the house. Also, users can add personal items to remind themselves of what they need to buy if the items are not part of the regular house shopping list. These personal items can be private so other people cannot see what is on the list but house items can be seen by everyone.
 
 		<br>
 	</div>
 	<hr>
+	<div>
+		My turn to by:
+		<!--{{#if currentUser}}-->
+			{{#each g in grocery}}
+				{{#if idMatch}}
+					{{> groceryListRow grocery = g}}
+				{{/if}}
+			{{/each}}
+		<!--{{/if}}-->
+	</div>
+	<br>
 	<ul>
 		<!--{{#if currentUser}}-->
 			Need to buy: <input type = "text" class = "js-item"> 
@@ -47,3 +49,4 @@
 	    </span>
 	</li>
 </template>
+

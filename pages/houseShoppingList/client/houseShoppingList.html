@@ -1,16 +1,11 @@
-<template name ="houseShoppingList">
+ <template name ="houseShoppingList">
 	<style>
 	h1.serif{
-		font-family: "Spelling Night", Times, serif;
-		color: rgb(84,73,115);
+		font-family: "Helvetica";
 	}
-	div.heading{
-		background-color: rgb(196,189,251);
-		border-style: solid;
-		border-color: rgb(196,189,251);
-		border-radius: 8px;
-		padding-left: 30px;
-		padding-bottom: 10px;
+	
+	body {
+		
 	}
 	</style>
 	<div class = "heading">
@@ -20,7 +15,7 @@
 		<br>
 	</div>
 	<hr>
-	
+	<body>
 	<ul>
 		Quantity
 		<select class = "js-quantity">
@@ -34,8 +29,7 @@
 		<button class = "js-addGrocery">Add to house list</button>
 		<hr>
 		Grocery List
-		Click the check mark to add it to your pantry.
-		Click the x to remove it from your list.
+
 		{{#each g in grocery}}
 			<li>
 				{{> groceryListRow grocery = g}}
@@ -60,6 +54,7 @@
 
 	<br>
 	<br>
+</body>
 </template>
 
 <template name = "houseShoppingLists">
@@ -79,6 +74,7 @@
 	<br>
 	Status:
 	<select class = "js-status">
+		<option>{{status}}</option>
 		<option>Fully stocked! (no need to buy more)</option>
 		<option>Running low (make sure to get it soon)</option>
 		<option>All gone :( Need to buy more</option>
@@ -86,12 +82,24 @@
 	<button type = "button" class = "js-apply-status">
 		<a href = "/houseShoppingList">Apply</a>
 	</button>
+	<br>
 	<button type = "button">
 		<a href="/houseShoppingList">Back</a>
 	</button>
-	<button type = "button" >
+	<button type = "button" class = "js-remove-grocery">
 		<a href="/houseShoppingList">Remove Item</a>
 	</button>
+	<br>
+	<br>
+	Next person to buy: {{buyer}}
+
+	<br>
+	Who bought it last:
+
+	<br>
+	<br>
+	Added by:
+	{{userEmail}}
 
 
 </template>
@@ -102,8 +110,7 @@
 		{{grocery.quantity}}
 		<a href="/houseShoppingLists/{{grocery._id}}">{{grocery.text}}
 		</a> <!--creates a new page specific to that grocery item -->
-       	<span class="js-remove-grocery glyphicon glyphicon-remove" aria-hidden="true">
-       	</span> <!-- this button deletes the grocery item from Groeries collection -->
+     
 	</li>
 </template>
 

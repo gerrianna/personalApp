@@ -3,16 +3,18 @@ Template.settings.helpers({
 })
 
 Template.settings.events({
-	"click .js-add-greeting": function(event){
+	"click .js-add-setting": function(event){
 		const greeting_text = $(".js-greeting").val(); //this gets the item that the user added to their personal list
+		const house_text = $(".js-house").val();
 		console.dir(greeting_text);
-		const greeting_obj =
+		const settings_obj =
 		{
-			text: greeting_text,
+			greeting: greeting_text,
+			house: house_text,
 			user: Meteor.userId(),
 		};
-		console.log(greeting_obj);
-		Meteor.call("greeting",greeting_obj);
+		console.log(settings_obj);
+		Meteor.call("settings",settings_obj);
 		
 	},
 })

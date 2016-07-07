@@ -1,11 +1,6 @@
 Template.personalShoppingList.helpers({
 	personalList: function(){return PersonalList.find()},
 	grocery: function(){return Groceries.find()},
-	idMatch: function(){
-		var a = Groceries.findOne({_id:grocery._id})._id;
-		var b = Groceries.findOne({_id:grocery._id}).buyerId;
-		return a == b;
-	},
 })
 
 Template.personalShoppingList.events({

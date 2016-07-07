@@ -15,13 +15,13 @@
 	<hr>
 	<div>
 		My turn to by:
-		<!--{{#if currentUser}}-->
+		{{#if currentUser}}
 			{{#each g in grocery}}
-				{{#if idMatch}}
+				<!--{{#if idMatch}}-->
 					{{> groceryListRow grocery = g}}
-				{{/if}}
+				<!--{{/if}}-->
 			{{/each}}
-		<!--{{/if}}-->
+		{{/if}}
 	</div>
 	<br>
 	<ul>

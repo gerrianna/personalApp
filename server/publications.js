@@ -4,18 +4,20 @@ Meteor.publish("theGroceries", function(){
 	//}
 })
 
-Meteor.publish("thePantry",
-	function(){return Pantry.find();
+Meteor.publish("theShoppingList",function(){
+	return Groceries.find({
+		addedBy: this.userId
+	});
 })
 
 Meteor.publish("thePersonalList",function(){
-	//if(this.userId){
+	if(this.userId){
 		return PersonalList.find(
-			//{addedBy: this.userId},
+			{addedBy: this.userId},
 	);
-	//} else {
-		//this.ready();
-	//1`}
+	} else {
+		this.ready();
+	}
 	
 })
 

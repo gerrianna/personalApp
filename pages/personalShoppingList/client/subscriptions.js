@@ -1,3 +1,3 @@
-Meteor.subscribe("theGroceries");
-Meteor.subscribe("thePantry");
+//Meteor.subscribe("theGroceries");
 Meteor.subscribe("thePersonalList");
+Meteor.subscribe("theShoppingList");

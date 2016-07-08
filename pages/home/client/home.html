@@ -1,23 +1,11 @@
-<template name ="home">
-	<div class = "{{theColor}}">
-	<h1> Welcome to Communal Kitchen</h1>
-	<br>
-		{{#if currentUser}}
-			Welcome back!
-			<!--  want to add a section where it has the user's name when they log into the first page
-				also want to add a part where you can click on other users' names and see their info and shopping list
-				on a user's page it will have a link to their list as well as an overview of any meals they are cooking plus any allergies or special notes
-			-->
-		{{else}}
-			Please log in
-		{{/if}}
-		<br>
-		<select class = "js-color">
-			<option>bg-warning</option>
-			<option>bg-info</option>
-		</select>
-		<br>
-		Counter: {{theCounter}} <br>
-		<button class = "js-pusher">Push me </button>
-	</div>
+<template name ="showList">
+	<h1>Shopping List</h1>
+	Need to buy: <input type = "text" class = "js-needToBuy">
+	
+	<button class = "js-addItem">Add to list</button>
+	<ul>
+		{{#each i in items}}
+		<li>{{i.person}} is buying {{i.items}}</li>
+		{{/each}}
+	</ul>
 </template>

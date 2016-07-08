@@ -16,35 +16,37 @@
        Communal Kitchen
       </h1>
     </header>
+    
     <nav class = "navbar">
+      
       <div>
+        
     		<ul class="nav nav-tabs">
       			<li role="presentation">
-      				<a href="{{pathFor 'home'}}">Home</a>
-      			</li>
-
-     			  <li role="presentation">
-     				   <a href="{{pathFor 'houseShoppingList'}}">House Shopping List</a>
-     			  </li>
-
-      			<li role="presentation">
-      				<a href="{{pathFor 'personalShoppingList'}}">My Shopping List</a>
-      			</li>
-
-            <li role = "presentation">
-              <a href="{{pathFor 'mealCalendar'}}">Meal Calendar</a>
+      				<a href="{{pathFor 'home'}}">Home </a>
+            </li>
+            <li>
+              <a href="{{pathFor 'houseShoppingList'}}"> House Shopping List</a>
             </li>
 
             <li role = "presentation">
-              <a href ="{{pathFor 'settings'}}">Settings</a>
+              <a href="{{pathFor 'personalShoppingList'}}"> My Shopping List</a>
             </li>
             
       			<li role = "presentation">
-      				{{> loginButtons}}
+      				 <a href ="{{pathFor 'settings'}}"> Settings </a>
       			</li>
+
+            <li role = "presentation">
+              {{> loginButtons}}
+            </li>
+
+
     		</ul>
+        
       </div>
     </nav>
+    
 	<!--<h1>My App</h1>-->
 	{{>yield}}
 	</div>

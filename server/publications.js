@@ -1,19 +1,26 @@
 Meteor.publish("theGroceries", function(){
 	//if(this.userId){
-		return Groceries.find();
+		return Groceries.find({fields:{
+			addedBy:1,
+			buyerEmail:1,
+			buyerId:1,
+			quantity:1,
+			status:1,
+			text:1
+		}});
 	//}
 })
 
 Meteor.publish("theShoppingList",function(){
-	return Groceries.find({
-		addedBy: this.userId
-	});
+	return Groceries.find(
+		
+	);
 })
 
 Meteor.publish("thePersonalList",function(){
 	if(this.userId){
 		return PersonalList.find(
-			{addedBy: this.userId},
+			//{addedBy: this.userId()},
 	);
 	} else {
 		this.ready();
@@ -29,6 +36,10 @@ Meteor.publish("settings", function(){
 	} else {
 		this.ready();
 	}
+})
+
+Meteor.publish("userData", function(){
+	return Meteor.users.find({});
 })
 
 

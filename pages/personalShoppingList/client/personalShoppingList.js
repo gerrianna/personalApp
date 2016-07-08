@@ -1,6 +1,9 @@
 Template.personalShoppingList.helpers({
-	personalList: function(){return PersonalList.find()},
+	personalList: function(){return PersonalList.find({addedBy:Meteor.userId()})},
 	grocery: function(){return Groceries.find()},
+	shoppingList: function(){
+		return Groceries.find({buyerId:Meteor.userId()}).fetch();
+	}
 })
 
 Template.personalShoppingList.events({

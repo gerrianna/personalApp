@@ -11,10 +11,10 @@
 	<div class = "heading">
 		<h1 class = "serif">House Shopping List
 		</h1>
-		This is a list of all the communal items that the house shares. To personalize your list, just add groceries. <br>//Maybe in the future, there can be an already made list that people can use to start off that includes typical staples like milk and eggs.
+		<!--This is a list of all the communal items that the house shares. To personalize your list, just add groceries. <br>//Maybe in the future, there can be an already made list that people can use to start off that includes typical staples like milk and eggs.-->
 		<br>
 	</div>
-	<hr>
+
 	<body>
 	<ul>
 		Quantity
@@ -27,7 +27,8 @@
 		</select>
 		Need to buy: <input type = "text" class = "js-needToBuy">
 		<button class = "js-addGrocery">Add to house list</button>
-		<hr>
+		<br>
+		<br>
 		Grocery List
 
 		{{#each g in grocery}}
@@ -40,18 +41,6 @@
 		<button class = "js-remove-all-groceries">Remove All</button>
 		<!--<input class = "js-password" type = "password">-->
 	<br>
-
-	<hr>
-	<!--<ul>
-		Pantry - this holds all of the food you have bought. <br>
-		Click the add button if you need to buy more of that product and it will add it to your grocery list.
-		<br>
-		<br>
-		{{#each p in pantry}}
-			{{> pantryListRow pantry = p}}
-		{{/each}}
-	</ul>-->
-
 	<br>
 	<br>
 </body>
@@ -79,6 +68,17 @@
 		<option>Running low (make sure to get it soon)</option>
 		<option>All gone :( Need to buy more</option>
 	</select>
+	
+	<br>
+	Buyer:
+	<select class = "js-buyer">
+		<option>{{buyerId}}</option>
+		{{#each u in usersId}}
+			<option>
+				{{u._id}}
+			</option>
+		{{/each}}
+	</select>
 	<button type = "button" class = "js-apply-status">
 		<a href = "/houseShoppingList">Apply</a>
 	</button>
@@ -91,15 +91,12 @@
 	</button>
 	<br>
 	<br>
-	Next person to buy: {{buyer}}
-
-	<br>
-	Who bought it last:
+	Who bought it last: {{lastBuyer}}
 
 	<br>
 	<br>
 	Added by:
-	{{userEmail}}
+	{{buyerEmail}}
 
 
 </template>
@@ -109,44 +106,6 @@
 	<li>
 		{{grocery.quantity}}
 		<a href="/houseShoppingLists/{{grocery._id}}">{{grocery.text}}
-		</a> <!--creates a new page specific to that grocery item -->
-     
+		</a> <!--creates a new page specific to that grocery item -->   
 	</li>
 </template>
-
-
-<!--<template name = "pantryListRow">
-	<li>
-	{{pantry.quantity}} <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal"> {{pantry.text}}
-		</button>
-		<span class="js-move-pantry glyphicon glyphicon-ok" aria-hidden="true">
-      	</span>
-       	<span class="js-remove-pantry glyphicon glyphicon-remove" aria-hidden="true">
-       	</span>
-       	<div class="modal fade" id="myModal" tabindex="-1" role = "dialog" aria-labelledby="myModalLabel">
-       		<div class="modal-dialog" role="document">
-       			<div class = "modal-content">
-       				<div class = "modal-header">
-       					This is where I want users to be able to edit their grocery list items.
-       					<br>
-       					Quantity
-						<select class = "js-quantity">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-						<button class = "js-change-pantry">Edit pantry item</button>
-       					--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-       					<h4>Hi {{grocery.text}} </h4>-- ! >
-       				</div>
-       				<div class = "modal-footer">
-       					<button type="button" class = "btn btn-default" data-dismiss="modal">Close</button>
-       				</div>
-       			</div>
-       		</div>
-       	</div>
-	</li>
-
-</template> -->

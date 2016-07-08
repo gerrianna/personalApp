@@ -1,9 +1,14 @@
 <template name ="home">
-	<div class = "{{theColor}}">
-	<h1> Welcome to Communal Kitchen</h1>
+	<style>
+		h1.serif{
+			font-family: "Helvetica";
+		}
+	</style>
+	<div class = "heading">
+	<h1 class = "serif">Welcome to Communal Kitchen</h1>
 	<br>
 		{{#if currentUser}}
-			Welcome back!
+			House Favorites
 			<!--  want to add a section where it has the user's name when they log into the first page
 				also want to add a part where you can click on other users' names and see their info and shopping list
 				on a user's page it will have a link to their list as well as an overview of any meals they are cooking plus any allergies or special notes
@@ -12,12 +17,74 @@
 			Please log in
 		{{/if}}
 		<br>
-		<select class = "js-color">
-			<option>bg-warning</option>
-			<option>bg-info</option>
+		<select class = "js-fav">
+			<option></option>
+			<option>Jumbalaya</option>
+			<option>Guacamole</option>
 		</select>
 		<br>
-		Counter: {{theCounter}} <br>
-		<button class = "js-pusher">Push me </button>
+		<br>
+		{{#if showGuac}}
+			Recipe:
+			<br>
+			3 medium avocados or 4 small ones
+			<br>
+			1 firm tomato, finely diced
+			<br>
+			1/2 white onion
+			<br>
+			1/2 cup chopped cilantro
+			<br>
+			2 tbsp fresh lemon or lime juice
+			<br>
+			Optional salt and pepper to taste
+			<br>
+			<br>
+			Instructions:
+			<br>
+			1. Open the avocados and scoop out the flesh. An easy way is to cut it length-wise around the pit and than using a chefs knife strike the pit and then twist the knife so you can easily remove the pit and scoop out the flesh.
+			<br>
+			2. Mash the flesh with a fork, it can still have hard parts, follow your preference.
+			3. Stir the other ingredients.
+			<br>
+			4. Enjoy right away or store in the refrigerator. A trick is to put a plastic wrap that touches the guacamole so it doesn’t brown because of contact with air.
+			<br>
+			http://paleoleap.com/quick-easy-guacamole/
+		{{/if}}
+		{{#if showJumbalaya}}
+			Recipe:
+			<br>
+			12 medium shrimp, peeled, deveined and chopped
+			<br>
+			4 ounces chicken, diced
+			<br>
+			1 tablespoon Creole seasoning, recipe follows<br>
+			2 tablespoons olive oil<br>
+			1/4 cup chopped onion<br>
+			1/4 cup chopped green bell pepper<br>
+			1/4 cup chopped celery<br>
+			2 tablespoons chopped garlic<br>
+			1/2 cup chopped tomatoes<br>
+			3 bay leaves<br>
+			1 teaspoon Worcestershire sauce<br>
+			1 teaspoon hot sauce<br>
+			3/4 cup rice<br>
+			3 cups chicken stock<br>
+			5 ounces Andouille sausage, sliced<br>
+			Salt and pepper<br>
+			<br>
+			Instructions:
+			<br>
+			In a bowl combine shrimp, chicken and Creole seasoning, and work in seasoning well. In a large saucepan heat oil over high heat with onion, pepper and celery, 3 minutes. Add garlic, tomatoes, bay leaves, Worcestershire and hot sauces. Stir in rice and slowly add broth. Reduce heat to medium and cook until rice absorbs liquid and becomes tender, stirring occasionally, about 15 minutes. When rice is just tender add shrimp and chicken mixture and sausage. Cook until meat is done, about 10 minutes more. Season to taste with salt, pepper and Creole seasoning.
+
+Read more at: http://www.foodnetwork.com/recipes/emeril-lagasse/cajun-jambalaya-recipe2.html?oc=linkback
+			<br>
+			http://www.foodnetwork.com/recipes/emeril-lagasse/cajun-jambalaya-recipe2.html
+		{{/if}}
+
 	</div>
 </template>
+
+
+
+

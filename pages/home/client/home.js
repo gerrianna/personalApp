@@ -1,17 +1,17 @@
-Template.showList.helpers({
-	items:function(){
-		//const dest = $(" .js-dest").val();
-		return Items.find({item:"eggs"});
+Template.home.helpers({ //helper functions for the home page
+	bios:function(){ // function to find bio items
+		return Bios.find(); //returns the bio items
 	}
 })
 
-Template.showList.events({
-	"click .js-addItem": function(event){
-		console.log("added to shopping list");
-		const needToBuy = $(" .js-needToBuy").val();
-		const item =
-		{item:item}
-		console.dir(needToBuy);
-		
+Template.home.events({ //allows users to click on update and have the name appear on the right
+	"click .js-update-bio": function(event){ //button
+		const name = $(" .js-name").val(); //gets name value
+		const text = $(" .js-bio").val(); //gets bio text value
+		const bio_obj = //creates object with name and text
+		{name:name,
+			text:text
+		}
+		Meteor.call("addBio",bio_obj); //passes into the meteor method "addBio"
 	}
 })

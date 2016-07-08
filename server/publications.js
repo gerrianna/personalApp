@@ -1,4 +1,4 @@
-Meteor.publish("theGroceries", function(){
-	//return Groceries.find();
+Meteor.publish("theBios", function(){ //publishes the bio collection
+	return Bios.find();
 })
 

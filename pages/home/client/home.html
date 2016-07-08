@@ -1,11 +1,36 @@
-<template name ="showList">
-	<h1>Shopping List</h1>
-	Need to buy: <input type = "text" class = "js-needToBuy">
-	
-	<button class = "js-addItem">Add to list</button>
-	<ul>
-		{{#each i in items}}
-		<li>{{i.person}} is buying {{i.items}}</li>
-		{{/each}}
-	</ul>
+<template name ="home">
+	<h1>Quiz 4</h1>
+	by Gerrianna Cohen
+	<br>
+	<div class = "col-md-6 bg-info">
+		<h2>Update your bio below</h2>
+		Name:
+		<input type = "text" class = "js-name">
+		<br>
+		Bio:
+		<br>
+		<textarea class = "js-bio" cols = "60" rows = "6"></textarea>
+		<br>
+		<button class = "js-update-bio">Update Bio</button>
+	</div>
+	<div class = "col-md-6 bg-warning">
+		<h2>or select a bio to view</h2>
+		<ul>
+			
+				{{#each b in bios}}
+				<li>
+					<a href = "/user/{{b._id}}">{{b.name}}</a>
+					</li>
+				{{/each}}
+			
+		</ul>
+	</div>
+</template>
+
+<template name = "user">
+	<br>
+	<div class = "jumbotron"> <!--creates jumbotron with user name and text-->
+		<h1>{{name}}</h1>
+		{{text}}
+	</div>
 </template>

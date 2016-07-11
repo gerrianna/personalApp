@@ -2,7 +2,7 @@ Template.personalShoppingList.helpers({
 	personalList: function(){return PersonalList.find({addedBy:Meteor.userId()})},
 	grocery: function(){return Groceries.find()},
 	shoppingList: function(){
-		return Groceries.find({buyerId:Meteor.userId()}).fetch();
+		return Groceries.find({buyerEmail:Meteor.user().emails[0].address}).fetch();
 	}
 })
 

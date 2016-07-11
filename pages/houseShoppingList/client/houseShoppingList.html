@@ -52,7 +52,6 @@
 	{{text}}
 	<br>
 	<br>
-	Your Id: {{currentUser._id}}
 	<br>
 	Quantity:
 	<select class = "js-new-quantity">
@@ -75,10 +74,10 @@
 	<br>
 	Buyer:
 	<select class = "js-buyer">
-		<option>{{buyerId}}</option>
-		{{#each u in usersId}}
+		<option>{{userEmail}}</option>
+		{{#each user}}
 			<option>
-				{{u._id}}
+				{{userEmail}}
 			</option>
 		{{/each}}
 	</select>

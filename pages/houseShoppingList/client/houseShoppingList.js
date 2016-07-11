@@ -1,6 +1,8 @@
 Template.houseShoppingList.helpers({
 	grocery: function(){return Groceries.find()},
-	pantry: function(){return Pantry.find()}
+	pantry: function(){return Pantry.find()},
+	user: function(){return Meteor.users.find()},
+	userEmail: function(){return this.emails[0].address}
 	//const dest = $(" .js-dest").val();
 })
 
@@ -48,7 +50,8 @@ Template.groceryListRow.events({
 })
 
 Template.houseShoppingLists.helpers({
-	usersId: function(){return Meteor.users.find().fetch()},
+	user: function(){return Meteor.users.find()},
+	userEmail: function(){return this.emails[0].address}
 	//const a = Meteor.user().emails[0].address;
 })
 
@@ -61,6 +64,8 @@ Template.houseShoppingLists.events({
 		console.dir("id");
 		console.dir(id);
 		const buyer = $(".js-buyer").val();
+		console.dir("buyer");
+		console.dir(buyer);
 		const lastBuyer = this.buyerId;
 		const item = Groceries.findOne({_id: this._id});
 		console.dir("item = " +item);

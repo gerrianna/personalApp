@@ -1,8 +1,9 @@
 Template.houseShoppingList.helpers({
-	grocery: function(){return Groceries.find()},
+	grocery: function(){return Groceries.find({house:Meteor.user().household.household})},
 	pantry: function(){return Pantry.find()},
 	user: function(){return Meteor.users.find()},
-	userEmail: function(){return this.emails[0].address}
+	userEmail: function(){return this.emails[0].address},
+
 	//const dest = $(" .js-dest").val();
 })
 
@@ -20,6 +21,7 @@ Template.houseShoppingList.events({ //this is the javascript to add an grocery i
 		var buyerEmail = "";
 		var buyerId = "";
 		var lastBuyer = "";
+		var house = Meteor.user().household.household;
 
 		var grocery_obj = {
 			text:needToBuy, 
@@ -29,6 +31,7 @@ Template.houseShoppingList.events({ //this is the javascript to add an grocery i
 			buyerEmail: buyerEmail,
 			buyerId: buyerId,
 			lastBuyer: lastBuyer,
+			house: house,
 			//userEmail: Meteor.user().emails[0].address,
 		};
 		// the grocery_obj is the grocery item with all of it's information
@@ -50,7 +53,7 @@ Template.groceryListRow.events({
 })
 
 Template.houseShoppingLists.helpers({
-	user: function(){return Meteor.users.find()},
+	user: function(){return Meteor.users.find({"household.household":Meteor.user().household.household})},
 	userEmail: function(){return this.emails[0].address}
 	//const a = Meteor.user().emails[0].address;
 })

@@ -1,0 +1,22 @@
+header{
+      text-align: left;
+      font-family: "Spelling Night";
+      background-color: #ffffff;
+      background-size: 100% 100%;
+
+}
+
+.nav .navbar-nav li a{
+	margin-left:40%;
+	color: red;
+}
+
+ul.nav{
+	margin-left: 26%;
+	margin-top: -4%;
+}
+
+ul.navUser{
+	margin-left: 1%;
+	margin-top: -2.8%;
+}

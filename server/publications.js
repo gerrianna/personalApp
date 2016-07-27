@@ -42,6 +42,10 @@ Meteor.publish("userData", function(){
 	return Meteor.users.find({});
 })
 
+Meteor.publish("theHouses", function(){
+	return Houses.find();
+})
+
 
 /*/Meteor.publish
 Meteor.publish("userData", function(){

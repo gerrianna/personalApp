@@ -1,51 +1,31 @@
 <template name = "layout">
-  <style>
-    header{
-      text-align: center;
-      font-family: "Spelling Night";
-
-    }
-    nav{
-      font-family: "Verdana", sans-serif;
-      text-align: center;
-    }
-  </style>
 	<div class = "container">
-    <header>
+        
+    <div class = "navbar">
+      <header>
       <h1>
        Communal Kitchen
       </h1>
     </header>
-    
-    <nav class = "navbar">
-      
-      <div>
-        
-    		<ul class="nav nav-tabs">
-      			<li role="presentation">
-      				<a href="{{pathFor 'home'}}">Home </a>
+
+    		<ul class="nav navbar-nav navbar-center">
+      			<li role="presentation" >
+      				<a href="{{pathFor 'home'}}" class = "home">Home </a>
             </li>
             <li>
-              <a href="{{pathFor 'houseShoppingList'}}"> House Shopping List</a>
+              <a href="{{pathFor 'houseShoppingList'}}" class = "house"> House Shopping List</a>
             </li>
 
-            <li role = "presentation">
-              <a href="{{pathFor 'personalShoppingList'}}"> My Shopping List</a>
+            <li role = "presentation" >
+              <a href="{{pathFor 'personalShoppingList'}}" class = "myshoppinglist"> My Shopping List</a>
             </li>
-            
-      			<li role = "presentation">
-      				 <a href ="{{pathFor 'settings'}}"> Settings </a>
-      			</li>
-
-            <li role = "presentation">
+        </ul>
+        <ul class = "navUser nav navbar-nav navbar-left">
+            <li role = "presentation" class = "login">
               {{> loginButtons}}
             </li>
-
-
     		</ul>
-        
-      </div>
-    </nav>
+    </div>
     
 	<!--<h1>My App</h1>-->
 	{{>yield}}
